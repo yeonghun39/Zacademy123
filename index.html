@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>제트아카데미</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; color: #222; background: #fff; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    header {
+      position: fixed; top: 0; width: 100%; background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 1000;
+    }
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      max-width: 1100px; margin: auto; padding: 1rem;
+    }
+    nav img { height: 48px; }
+
+    .dropdown { position: relative; }
+    .dropbtn {
+      background-color: #003366; color: white; border: none;
+      padding: 10px 16px; border-radius: 6px; font-size: 15px; cursor: pointer;
+    }
+    .dropdown-content {
+      display: none; position: absolute; right: 0;
+      background-color: white; border: 1px solid #ccc;
+      min-width: 160px; border-radius: 6px; overflow: hidden;
+    }
+    .dropdown-content a {
+      padding: 12px 16px; display: block; color: #333;
+    }
+    .dropdown-content a:hover { background-color: #f2f2f2; }
+
+    .hero {
+      height: 90vh; background: url('hero.jpg') center/cover no-repeat;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .hero::before {
+      content: ""; position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .hero-text {
+      position: relative; z-index: 1;
+      color: #fff; text-align: center;
+      animation: fadeIn 1.6s ease-out;
+    }
+    .hero-text h1 {
+      font-size: 2.6rem; margin-bottom: 1rem;
+    }
+
+    section {
+      padding: 5rem 2rem; max-width: 1100px; margin: auto;
+    }
+    section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: #003366;
+    }
+
+    .slide-container {
+      overflow: hidden;
+      position: relative;
+    }
+    .slide-track {
+      display: flex; transition: transform 1s ease;
+    }
+    .slide-track > div {
+      min-width: 100%; text-align: center;
+    }
+
+    .slide-track img {
+      max-width: 300px;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .kakao-btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-color: #fee500;
+      color: #111;
+      font-weight: bold;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @media (max-width: 768px) {
+      .hero-text h1 { font-size: 2rem; }
+      nav { flex-direction: column; align-items: flex-start; }
+    }
+  
+    .animate-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+    .animate-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    </style>
+    
+</head>
+<body>
+<header>
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; max-width: 1100px; margin: auto;">
+<img alt="제트아카데미 로고" src="logo.png" style="height: 42px; display: block;"/>
+<div class="dropdown">
+<button class="dropbtn">☰ 메뉴</button>
+<div class="dropdown-content" id="dropdown-menu">
+<a href="#intro">학원소개</a>
+<a href="#teachers">강사진</a>
+<a href="#curriculum">커리큘럼</a>
+<a href="#gallery">갤러리</a>
+<a href="#location">오시는 길</a>
+<a href="#contact">상담문의</a>
+</div>
+</div>
+</div>
+</header>
+<div class="hero">
+<div class="hero-text">
+<h1>제트아카데미에 오신 것을 환영합니다</h1>
+<p>실력을 끌어올리는 가장 빠른 길, 지금 시작하세요.</p>
+</div>
+</div>
+<section id="intro" class="animate-up">
+<h2>학원 소개</h2>
+<p>제트아카데미는 학생 개개인 맞춤형 커리큘럼과 전임 강사진을 통해 최고의 교육 서비스를 제공합니다.</p>
+</section>
+<section id="teachers" class="animate-up">
+<h2>강사진</h2>
+<div class="slide-container">
+<div class="slide-track" id="teacherslide">
+<div>
+<img alt="김지윤 선생님" src="teacher1.jpg"/>
+<p><strong>김지윤 선생님</strong><br/>국어 전문 강사 / 학습 코칭</p>
+</div>
+<div>
+<img alt="박소은 선생님" src="teacher2.jpg"/>
+<p><strong>박소은 선생님</strong><br/>수학·영어 통합 강의 / 개별 맞춤 지도</p>
+</div>
+</div>
+</div>
+</section>
+<section id="curriculum" class="animate-up">
+<h2>커리큘럼</h2>
+<ul>
+<li>국어: 독해력 향상 및 논술 기반 수업</li>
+<li>영어: 문법 및 회화 병행 커리큘럼</li>
+<li>수학: 단계별 문제 해결 및 사고력 향상</li>
+<li>자기주도 학습 훈련 시스템</li>
+</ul>
+</section>
+<section id="gallery" class="animate-up">
+<h2>갤러리</h2>
+<div class="slide-container">
+<div class="slide-track" id="galleryslide">
+<div><img alt="강의실 1" src="gallery1.jpg"/><p><strong>강의실 1</strong><br/>개별 책상과 넓은 공간이 특징입니다.</p></div>
+<div><img alt="강의실 2" src="gallery2.jpg"/><p><strong>강의실 2</strong><br/>화이트보드와 집중 조명이 갖춰진 수업 공간입니다.</p></div>
+<div><img alt="그룹 수업" src="gallery3.jpg"/><p><strong>그룹 수업</strong><br/>소그룹 맞춤 수업이 진행되는 강의실입니다.</p></div>
+<div><img alt="자습실" src="gallery4.jpg"/><p><strong>자습실</strong><br/>조용하고 쾌적한 자습 공간을 제공합니다.</p></div>
+</div>
+</div>
+</section>
+<section id="location" class="animate-up">
+<h2>오시는 길</h2>
+<p>경기도 수원시 영통구 이의동 1316-2</p>
+</section>
+<section id="contact" class="animate-up" style="text-align: center;">
+<h2>상담 및 문의</h2>
+<a class="kakao-btn" href="https://pf.kakao.com/_xxx" target="_blank">💬 카카오톡 상담하기</a>
+</section>
+<script>
+    const dropBtn = document.querySelector('.dropbtn');
+    const dropMenu = document.getElementById('dropdown-menu');
+    dropBtn.onclick = () => {
+      dropMenu.style.display = dropMenu.style.display === 'block' ? 'none' : 'block';
+    };
+    document.addEventListener('click', function(e) {
+      if (!dropBtn.contains(e.target) && !dropMenu.contains(e.target)) {
+        dropMenu.style.display = 'none';
+      }
+    });
+
+    let tIndex = 0, gIndex = 0;
+    setInterval(() => {
+      tIndex = (tIndex + 1) % 2;
+      document.getElementById('teacherslide').style.transform = `translateX(-${tIndex * 100}%)`;
+    }, 3000);
+    setInterval(() => {
+      gIndex = (gIndex + 1) % 4;
+      document.getElementById('galleryslide').style.transform = `translateX(-${gIndex * 100}%)`;
+    }, 3500);
+  </script>
+
+    <script>
+      const animatedEls = document.querySelectorAll('.animate-up');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      animatedEls.forEach(el => observer.observe(el));
+    </script>
+    </body>
+    
+</html>
